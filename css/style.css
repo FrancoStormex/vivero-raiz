@@ -1,0 +1,35 @@
+body {
+    background-color: #f2f2f1;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section, article {
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: #33a12d;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #3ebe33;
+    font-size: 26px;
+    border-bottom: 2px solid #d4e2d4;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #000000;
+    font-size: 20px;
+}
