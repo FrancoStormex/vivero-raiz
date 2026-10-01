@@ -54,9 +54,8 @@ img {
     font-weight: bold;
 }
 
-/* Efecto al pasar el mouse por encima (hover) */
 .boton:hover {
-    background-color: #2b5329; /* Se oscurece al pasar el cursor */
+    background-color: #2b5329;
 }
 
 table {
@@ -68,4 +67,43 @@ table {
 td {
     padding: 12px;
     border-bottom: 1px solid #d4e2d4;
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    background-color: #ffffff; 
+    padding: 15px 40px;
+    border-bottom: 2px solid #d4e2d4;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #d4e2d4;
+    color: #2b5329;
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #43823d;
+    color: #ffffff;
+    font-size: 14px;
 }
