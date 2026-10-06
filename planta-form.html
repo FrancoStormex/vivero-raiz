@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargar Planta | Vivero Raíz</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="./images/vivero-raiz-logo.png" alt="Logo de Vivero" width="200">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <nav>
+            <ul>
+                <li><a href="listado.html">Ver Inventario</a></li>
+                <li><a href="planta-form.html">Nueva Planta</a></li>
+                <li><a href="index.html">Salir al Sitio</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>Alta / Edición de Planta</h2>
+            
+            <div class="alerta alerta-error">
+                Por favor, completa todos los campos obligatorios.
+            </div>
+
+            <form action="" method="POST">
+                <fieldset>
+                    <legend>Datos Principales</legend>
+                    <label for="nombre">Nombre de la planta:</label>
+                    <input type="text" id="nombre" name="nombre" class="campo-entrada" required>
+
+                    <label for="precio">Precio ($):</label>
+                    <input type="number" id="precio" name="precio" class="campo-entrada" required>
+
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" class="campo-entrada">
+                        <option value="interior">Interior</option>
+                        <option value="exterior">Exterior</option>
+                        <option value="suculentas">Suculentas y Cactus</option>
+                    </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Detalles Adicionales</legend>
+                    <label for="imagen">URL de la imagen:</label>
+                    <input type="url" id="imagen" name="imagen" class="campo-entrada" placeholder="https://ejemplo.com/foto.jpg">
+
+                    <label for="cuidados">Descripción y Cuidados:</label>
+                    <textarea id="cuidados" name="cuidados" rows="4" class="campo-entrada"></textarea>
+                </fieldset>
+
+                <button type="submit" class="boton">Guardar Planta</button>
+                <a href="listado.html" class="boton" style="background-color: #333333;">Cancelar</a>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <p class="p-footer">&copy; 2026 Vivero Raíz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de plantas | Vivero Raíz</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html">
+            <img src="./images/vivero-raiz-logo.png" alt="Logo de Vivero" width="200">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="login.html">Iniciar Sesión</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <nav>
+            <ul>
+                <li><a href="listado.html">Ver Inventario</a></li>
+                <li><a href="planta-form.html">Nueva Planta</a></li>
+                <li><a href="index.html">Salir al Sitio</a></li>
+            </ul>
+        </nav>
+        <section>
+            <h2>Inventario de Plantas</h2>
+            
+            <div class="alerta alerta-exito">
+                Planta eliminada correctamente del catálogo.
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Planta</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td>Monstera Deliciosa</td>
+                            <td>Interior</td>
+                            <td>$15.000</td>
+                            <td>
+                                <a href="planta-form.html" class="btn-accion btn-editar">Editar</a>
+                                <button type="button" class="btn-accion btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td>Suculenta Echeveria</td>
+                            <td>Exterior</td>
+                            <td>$6.500</td>
+                            <td>
+                                <a href="planta-form.html" class="btn-accion btn-editar">Editar</a>
+                                <button type="button" class="btn-accion btn-eliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <p class="p-footer">&copy; 2026 Vivero Raíz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
