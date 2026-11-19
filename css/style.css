@@ -284,10 +284,6 @@ button.boton {
     font-weight: bold;
 }
 
-.mensaje-formulario {
-    display: none;
-}
-
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;

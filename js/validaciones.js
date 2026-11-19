@@ -60,13 +60,14 @@ if (formularioLogin) {
         const contrasena = document.getElementById("contrasena");
 
         if (!campoCompleto(formularioLogin, correo, "correo electrónico")) return;
-        if (!campoCompleto(formularioLogin, contrasena, "contraseña")) return;
 
         if (!correo.checkValidity()) {
             mostrarMensaje(formularioLogin, "Ingresá un correo electrónico válido.", true);
             correo.focus();
             return;
         }
+
+        if (!campoCompleto(formularioLogin, contrasena, "contraseña")) return;
 
         mostrarMensaje(formularioLogin, "Inicio de sesión exitoso.", false);
     })
@@ -88,15 +89,16 @@ if (formularioRegistro) {
         if (!campoCompleto(formularioRegistro, nombre, "nombre")) return;
         if (!campoCompleto(formularioRegistro, apellido, "apellido")) return;
         if (!campoCompleto(formularioRegistro, correo, "correo electrónico")) return;
-        if (!campoCompleto(formularioRegistro, direccion, "dirección")) return;
-        if (!campoCompleto(formularioRegistro, password, "contraseña")) return;
-        if (!campoCompleto(formularioRegistro, confirmarPassword, "confirmación de contraseña")) return;
 
         if (!correo.checkValidity()) {
             mostrarMensaje(formularioRegistro, "Ingresá un correo electrónico válido.", true);
             correo.focus();
             return;
         }
+
+        if (!campoCompleto(formularioRegistro, direccion, "dirección")) return;
+        if (!campoCompleto(formularioRegistro, password, "contraseña")) return;
+        if (!campoCompleto(formularioRegistro, confirmarPassword, "confirmación de contraseña")) return;
 
         if (password.value !== confirmarPassword.value) {
             mostrarMensaje(formularioRegistro, "Las contraseñas no coinciden.", true);
