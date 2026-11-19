@@ -13,7 +13,7 @@
 
     <header>
         <a href="index.html">
-            <img src="./images/vivero-raiz-logo.png" alt="Logo de Vivero" width="200">
+            <img src="./images/vivero-raiz-logo.png" alt="Logo de Vivero" width="250">
         </a>
         <button type="button" id="boton-menu" class="menu-toggle" aria-controls="menu-principal" aria-expanded="false"
             aria-label="Abrir o cerrar menu">☰</button>
@@ -37,41 +37,108 @@
             </ul>
         </nav>
         <section>
-            <h2>Alta / Edición de Planta</h2>
+            <h1>Alta / Edición de Planta</h1>
 
-            <div class="alerta alerta-error">
-                Por favor, completa todos los campos obligatorios.
-            </div>
+            <form id="form-planta">
+                <div class="mensaje-formulario alerta" role="status" aria-live="polite" hidden></div>
 
-            <form action="" method="POST">
                 <fieldset>
                     <legend>Datos Principales</legend>
+
                     <label for="nombre">Nombre de la planta:</label>
                     <input type="text" id="nombre" name="nombre" class="campo-entrada" required>
 
-                    <label for="precio">Precio ($):</label>
-                    <input type="number" id="precio" name="precio" class="campo-entrada" required>
+                    <label for="nombreCientifico">Nombre científico:</label>
+                    <input type="text" id="nombreCientifico" name="nombreCientifico" class="campo-entrada" required>
 
                     <label for="categoria">Categoría:</label>
-                    <select id="categoria" name="categoria" class="campo-entrada">
+                    <select id="categoria" name="categoria" class="campo-entrada" required>
+                        <option value="">Seleccioná una categoría</option>
                         <option value="interior">Interior</option>
                         <option value="exterior">Exterior</option>
-                        <option value="suculentas">Suculentas y Cactus</option>
+                        <option value="suculenta">Suculenta</option>
+                        <option value="aromatica">Aromática</option>
                     </select>
+
+                    <label for="precio">Precio ($):</label>
+                    <input type="number" id="precio" name="precio" min="0" step="0.01" class="campo-entrada" required>
+
+                    <label for="stock">Stock disponible:</label>
+                    <input type="number" id="stock" name="stock" min="0" step="1" class="campo-entrada" required>
+
+                    <label for="fechaIngreso">Fecha de ingreso:</label>
+                    <input type="date" id="fechaIngreso" name="fechaIngreso" class="campo-entrada" required>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Detalles Adicionales</legend>
-                    <label for="imagen">URL de la imagen:</label>
-                    <input type="url" id="imagen" name="imagen" class="campo-entrada"
-                        placeholder="https://ejemplo.com/foto.jpg">
+                    <legend>Condiciones de cuidado</legend>
 
-                    <label for="cuidados">Descripción y Cuidados:</label>
-                    <textarea id="cuidados" name="cuidados" rows="4" class="campo-entrada"></textarea>
+                    <fieldset>
+                        <legend>Necesidad de luz:</legend>
+                        <label>
+                            <input type="radio" name="luz" value="sol pleno"> Sol pleno
+                        </label>
+                        <label>
+                            <input type="radio" name="luz" value="media sombra"> Media sombra
+                        </label>
+                        <label>
+                            <input type="radio" name="luz" value="sombra"> Sombra
+                        </label>
+                    </fieldset>
+
+                    <p>
+                        <label for="riego">Frecuencia de riego:</label>
+                        <select id="riego" name="riego" class="campo-entrada">
+                            <option value="">Seleccioná una opción</option>
+                            <option value="bajo">Bajo</option>
+                            <option value="medio">Medio</option>
+                            <option value="alto">Alto</option>
+                        </select>
+                    </p>
+
+                    <fieldset>
+                        <legend>¿Es apta para mascotas?</legend>
+                        <label>
+                            <input type="radio" name="aptaMascotas" value="true"> Sí
+                        </label>
+                        <label>
+                            <input type="radio" name="aptaMascotas" value="false"> No
+                        </label>
+                    </fieldset>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Características adicionales</legend>
+
+                    <fieldset>
+                        <legend>Etiquetas de la planta:</legend>
+
+                        <label>
+                            <input type="checkbox" name="etiquetas" value="purificadora"> Purificadora
+                        </label>
+                        <label>
+                            <input type="checkbox" name="etiquetas" value="floración"> Floración
+                        </label>
+                        <label>
+                            <input type="checkbox" name="etiquetas" value="colgante"> Colgante
+                        </label>
+                        <label>
+                            <input type="checkbox" name="etiquetas" value="resistente"> Resistente
+                        </label>
+                    </fieldset>
+
+                    <p>
+                        <label for="foto">URL de la fotografía:</label>
+                        <input type="url" id="foto" name="foto" class="campo-entrada"
+                            placeholder="https://ejemplo.com/planta.jpg">
+                    </p>
+
+                    <label for="notas">Notas y cuidados particulares:</label>
+                    <textarea id="notas" name="notas" rows="5" class="campo-entrada"></textarea>
                 </fieldset>
 
                 <button type="submit" class="boton">Guardar Planta</button>
-                <a href="listado.html" class="boton" style="background-color: #333333;">Cancelar</a>
+                <a href="listado.html" class="boton">Cancelar</a>
             </form>
         </section>
     </main>
