@@ -265,3 +265,40 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 
 .btn-eliminar { background-color: #d9534f; }
 .btn-eliminar:hover, .btn-eliminar:focus { background-color: #c9302c; }
+
+.menu-toggle {
+    display: none;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 16px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+button.boton {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+}
+
+.mensaje-formulario {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    #menu-principal {
+        display: none;
+        width: 100%;
+    }
+
+    #menu-principal.menu-abierto {
+        display: block;
+    }
+}

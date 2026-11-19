@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,16 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/validaciones.js" defer></script>
 </head>
+
 <body>
 
     <header>
         <a href="index.html">
             <img src="./images/vivero-raiz-logo.png" alt="Logo de Vivero" width="200">
         </a>
-        <nav>
+        <button type="button" id="boton-menu" class="menu-toggle" aria-controls="menu-principal" aria-expanded="false"
+            aria-label="Abrir o cerrar menu">☰</button>
+        <nav id="menu-principal">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="catalogo.html">Catálogo</a></li>
@@ -34,7 +38,7 @@
         </nav>
         <section>
             <h2>Alta / Edición de Planta</h2>
-            
+
             <div class="alerta alerta-error">
                 Por favor, completa todos los campos obligatorios.
             </div>
@@ -59,7 +63,8 @@
                 <fieldset>
                     <legend>Detalles Adicionales</legend>
                     <label for="imagen">URL de la imagen:</label>
-                    <input type="url" id="imagen" name="imagen" class="campo-entrada" placeholder="https://ejemplo.com/foto.jpg">
+                    <input type="url" id="imagen" name="imagen" class="campo-entrada"
+                        placeholder="https://ejemplo.com/foto.jpg">
 
                     <label for="cuidados">Descripción y Cuidados:</label>
                     <textarea id="cuidados" name="cuidados" rows="4" class="campo-entrada"></textarea>
@@ -78,4 +83,5 @@
     </footer>
 
 </body>
+
 </html>

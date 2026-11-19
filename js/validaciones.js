@@ -113,3 +113,13 @@ if (formularioRegistro) {
         mostrarMensaje(formularioRegistro, "Registro completado con éxito.", false);
     });
 }
+
+const botonMenu = document.getElementById("boton-menu");
+const menuPrincipal = document.getElementById("menu-principal");
+
+if (botonMenu && menuPrincipal) {
+    botonMenu.addEventListener("click", function () {
+        const estaAbierto = menuPrincipal.classList.toggle("menu-abierto");
+        botonMenu.setAttribute("aria-expanded", estaAbierto);
+    });
+}
