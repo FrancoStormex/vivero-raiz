@@ -30,19 +30,20 @@
             <p>Ingresa a tu cuenta para ver el estado de tus pedidos y guardar tus plantas favoritas.</p>
 
             <article>
-                <p>
-                    <label for="correo">Correo electrónico:</label>
-                    <input type="email" id="correo" name="correo" class="campo-entrada">
-                </p>
+                <form id="form-login" novalidate>
+                    <div class="mensaje-formulario alerta" role="status" aria-live="polite" hidden></div>
+                    <p>
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" class="campo-entrada">
+                    </p>
 
-                <p>
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" id="contrasena" name="contrasena" class="campo-entrada">
-                </p>
+                    <p>
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" class="campo-entrada">
+                    </p>
 
-                <p>
-                    <a href="listado.html" class="boton">Ingresar</a>
-                </p>
+                    <button type="submit" class="boton">Ingresar</button>
+                </form>
             </article>
         </section>
         <aside>

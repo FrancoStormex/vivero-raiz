@@ -32,34 +32,49 @@
         </section>
 
         <article>
-            <div>
-                <label for="nombre">Nombre completo:</label>
-                <input type="text" id="nombre" name="nombre" class="campo-entrada">
-            </div>
-            <br>
-            <div>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" class="campo-entrada">
-            </div>
-            <br>
-            <div>
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" class="campo-entrada">
-            </div>
-            <br>
-            <div>
-                <label for="mensaje">Motivo de la consulta:</label>
-                <select id="motivo" name="motivo" class="campo-entrada">
-                    <option value="disponibilidad">Disponibilidad de plantas</option>
-                    <option value="cuidados">Asesoramiento de cuidados</option>
-                    <option value="otro">Otro motivo</option>
-                </select>
-            </div>
-            <br>
-            <div>
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="5" class="campo-entrada"></textarea>
-            </div>
+            <form id="form-contacto" novalidate>
+                <div class="mensaje-formulario alerta" role="status" aria-live="polite" hidden>
+                </div>
+                <div>
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" class="campo-entrada">
+                </div>
+                <br>
+                <div>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="correo" name="correo" class="campo-entrada">
+                </div>
+                <br>
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" class="campo-entrada">
+                </div>
+                <br>
+                <div>
+                    <label for="motivo">Motivo de la consulta:</label>
+                    <select id="motivo" name="motivo" class="campo-entrada">
+                        <option value="" selected>Seleccioná un motivo</option>
+                        <option value="disponibilidad">Disponibilidad de plantas</option>
+                        <option value="cuidados">Asesoramiento de cuidados</option>
+                        <option value="otro">Otro motivo</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" class="campo-entrada"></textarea>
+                </div>
+                <p>
+                    <label>
+                        <input type="checkbox" name="novedades">
+                        Quiero recibir novedades del vivero
+                    </label>
+                </p>
+
+                <button type="submit" class="boton">
+                    Enviar consulta
+                </button>
+            </form>
         </article>
     </main>
 
