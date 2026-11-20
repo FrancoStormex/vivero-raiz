@@ -142,6 +142,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
+
 .grilla article {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -202,11 +203,19 @@ aside {
     max-width: 800px;
 }
 
-a, button, input, select, textarea {
+a,
+button,
+input,
+select,
+textarea {
     transition: all 0.3s ease;
 }
 
-a:focus, button:focus, input:focus, select:focus, textarea:focus {
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
     outline: 3px solid var(--color-heading-secondary);
     outline-offset: 2px;
 }
@@ -260,11 +269,23 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     color: #ffffff;
 }
 
-.btn-editar { background-color: #f0ad4e; }
-.btn-editar:hover, .btn-editar:focus { background-color: #ec971f; }
+.btn-editar {
+    background-color: #f0ad4e;
+}
 
-.btn-eliminar { background-color: #d9534f; }
-.btn-eliminar:hover, .btn-eliminar:focus { background-color: #c9302c; }
+.btn-editar:hover,
+.btn-editar:focus {
+    background-color: #ec971f;
+}
+
+.btn-eliminar {
+    background-color: #d9534f;
+}
+
+.btn-eliminar:hover,
+.btn-eliminar:focus {
+    background-color: #c9302c;
+}
 
 .menu-toggle {
     display: none;
@@ -297,4 +318,27 @@ button.boton {
     #menu-principal.menu-abierto {
         display: block;
     }
+}
+
+.precio-planta {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+}
+
+.tarjeta-planta[hidden] {
+    #sin-resultados[hidden] {
+        display: none;
+    }
+}
+
+#contador-resultados {
+    font-weight: bold;
+}
+
+#sin-resultados {
+    padding: 20px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-align: center;
 }

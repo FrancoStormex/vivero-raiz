@@ -82,6 +82,7 @@ if (formularioRegistro) {
         const nombre = document.getElementById("nombre");
         const apellido = document.getElementById("apellido");
         const correo = document.getElementById("correo");
+        const direccion = document.getElementById("direccion");
         const password = document.getElementById("password");
         const confirmarPassword = document.getElementById("confirmar-password");
         const terminos = document.getElementById("terminos");
