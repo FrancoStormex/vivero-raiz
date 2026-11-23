@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/validaciones.js" defer></script>
     <script src="./js/datos.js" defer></script>
+    <script src="./js/api.js" defer></script>
     <script src="./js/catalogo.js" defer></script>
 </head>
 
@@ -66,7 +67,9 @@
                 <button type="button" id="limpiar-filtros" class="boton">Limpiar filtros</button>
             </div>
 
-            <p id="contador-resultados" aria-live="polite"> 5 plantas encontradas</p>
+            <p id="estado-api-catalogo" class="alerta alerta-error" role="status" aria-live="polite" hidden></p>
+
+            <p id="contador-resultados" aria-live="polite">Cargando plantas...</p>
 
             <p id="sin-resultados" role="status" hidden>No encontramos plantas con ese criterio.</p>
 
