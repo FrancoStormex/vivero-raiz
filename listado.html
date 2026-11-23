@@ -7,6 +7,8 @@
     <title>Listado de plantas | Vivero Raíz</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/validaciones.js" defer></script>
+    <script src="./js/datos.js" defer></script>
+    <script src="./js/listado.js" defer></script>
 </head>
 
 <body>
@@ -53,28 +55,7 @@
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>#001</td>
-                            <td>Monstera Deliciosa</td>
-                            <td>Interior</td>
-                            <td>$15.000</td>
-                            <td>
-                                <a href="planta-form.html" class="btn-accion btn-editar">Editar</a>
-                                <button type="button" class="btn-accion btn-eliminar">Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#002</td>
-                            <td>Suculenta Echeveria</td>
-                            <td>Exterior</td>
-                            <td>$6.500</td>
-                            <td>
-                                <a href="planta-form.html" class="btn-accion btn-editar">Editar</a>
-                                <button type="button" class="btn-accion btn-eliminar">Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tabla-plantas"></tbody>
                 </table>
             </div>
         </section>
