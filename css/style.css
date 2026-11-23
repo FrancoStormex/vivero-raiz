@@ -342,3 +342,45 @@ button.boton {
     border-radius: 8px;
     text-align: center;
 }
+
+.filtros-catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px;
+    align-items: end;
+    padding: 20px;
+    margin: 25px 0 15px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.filtros-catalogo .campo-entrada {
+    margin-bottom: 0;
+}
+
+.filtros-catalogo .boton {
+    width: 100%;
+}
+
+.tarjeta-planta img,
+#detalle-planta img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tarjeta-planta[hidden],
+#sin-resultados[hidden] {
+    display: none;
+}
+
+.btn-accion:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+#detalle-planta table th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+}

@@ -9,73 +9,82 @@ const contador = document.getElementById("contador-resultados");
 const sinResultados = document.getElementById("sin-resultados");
 
 if (buscador && filtroCategoria && selectorOrden && botonLimpiar && contenedor && contador && sinResultados) {
-    const tarjetas = Array.from(contenedor.querySelectorAll(".tarjeta-planta"));
+    
+    function crearTarjeta(planta) {
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "tarjeta-planta";
 
-    const ordenOriginal = tarjetas.slice();
+        const titulo = document.createElement("h3");
+        titulo.textContent = planta.nombre;
 
-    function obtenerNombre(tarjeta) {
-        return tarjeta.querySelector("h3").textContent.trim();
+        const cientifico = document.createElement("p");
+        cientifico.textContent = planta.cientifico;
+
+        const descripcion = document.createElement("p");
+        descripcion.textContent = planta.notas;
+
+        const figura = document.createElement("figure");
+        const imagen = document.createElement("img");
+        imagen.src = planta.foto;
+        imagen.alt = planta.nombre;
+        imagen.width = 300;
+        figura.appendChild(imagen);
+
+        const precio = document.createElement("p");
+        precio.className = "precio-planta";
+        precio.textContent = "Precio: " + formatearPrecio(planta.precio);
+
+        const enlace = document.createElement("a");
+        enlace.href = "planta.html?id=" + planta.id;
+        enlace.className = "boton";
+        enlace.textContent = "Ver detalles";
+
+        tarjeta.append(titulo, cientifico, descripcion, figura, precio, enlace);
+        return tarjeta;
     }
 
-    function ordenarTarjetas() {
+    function mostrarCatalogo() {
+        const texto = buscador.value.trim().toLocaleLowerCase("es");
+        const categoria = filtroCategoria.value;
         const orden = selectorOrden.value;
-        const ordenadas = ordenOriginal.slice();
+
+        const resultados = plantas.filter(function (planta) {
+            const coincideNombre = planta.nombre.toLocaleLowerCase("es").includes(texto);
+            const coincideCategoria = categoria === "" || planta.categoria === categoria;
+            return coincideNombre && coincideCategoria;
+        });
 
         if (orden === "nombre-asc") {
-            ordenadas.sort((a, b) => obtenerNombre(a).localeCompare(obtenerNombre(b), "es"));
+            resultados.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
         } else if (orden === "nombre-desc") {
-            ordenadas.sort((a, b) => obtenerNombre(b).localeCompare(obtenerNombre(a), "es"));
+            resultados.sort((a, b) => b.nombre.localeCompare(a.nombre, "es"));
         } else if (orden === "precio-asc") {
-            ordenadas.sort((a, b) => Number(a.dataset.precio) - Number(b.dataset.precio));
+            resultados.sort((a, b) => a.precio - b.precio);
         } else if (orden === "precio-desc") {
-            ordenadas.sort((a, b) => Number(b.dataset.precio) - Number(a.dataset.precio));
+            resultados.sort((a, b) => b.precio - a.precio);
         }
 
-        ordenadas.forEach(function (tarjeta) {
-            contenedor.appendChild(tarjeta);
-        });
-    }
+        contenedor.replaceChildren();
 
-    function aplicarFiltros() {
-        const textoBuscado = buscador.value.trim().toLocaleLowerCase("es");
-        const categoriaElegida = filtroCategoria.value;
-
-        let cantidadVisibles = 0;
-
-        tarjetas.forEach(function (tarjeta) {
-            const nombre = obtenerNombre(tarjeta).toLocaleLowerCase("es");
-            const categoria = tarjeta.dataset.categoria;
-
-            const coincideNombre = nombre.includes(textoBuscado);
-            const coincideCategoria = categoriaElegida === "" || categoria === categoriaElegida;
-
-            const debeMostrarse = coincideNombre && coincideCategoria;
-
-            tarjeta.hidden = !debeMostrarse;
-
-            if (debeMostrarse) {
-                cantidadVisibles++;
-            }
+        resultados.forEach(function (planta) {
+            contenedor.appendChild(crearTarjeta(planta));
         });
 
-        contador.textContent = cantidadVisibles === 1 ? "1 planta encontrada" : cantidadVisibles + " plantas encontradas";
-
-        sinResultados.hidden = cantidadVisibles !== 0;
-
-        ordenarTarjetas();
+        contador.textContent = resultados.length === 1 ? "1 planta encontrada" : resultados.length + " plantas encontradas";
+        sinResultados.hidden = resultados.length !== 0;
     }
 
-    buscador.addEventListener("input", aplicarFiltros);
-    filtroCategoria.addEventListener("change", aplicarFiltros);
-    selectorOrden.addEventListener("change", ordenarTarjetas);
+    buscador.addEventListener("input", mostrarCatalogo);
+    filtroCategoria.addEventListener("change", mostrarCatalogo);
+    selectorOrden.addEventListener("change", mostrarCatalogo);
 
     botonLimpiar.addEventListener("click", function () {
         buscador.value = "";
         filtroCategoria.value = "";
-        selectorOrden.value = "nombre-asc";
-        aplicarFiltros();
+        selectorOrden.value = "original";
+        mostrarCatalogo();
         buscador.focus();
     });
 
-    aplicarFiltros();
+    mostrarCatalogo();
 }
