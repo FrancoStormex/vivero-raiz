@@ -43,7 +43,7 @@ async function obtenerPlantas() {
 async function obtenerPlantaPorId(id) {
     try {
         const respuesta = await fetch(
-            URL_PLANTAS + "/" + encodeURIComponent(id)
+            URL_PLANTAS + "?id=" + encodeURIComponent(id)
         );
 
         if (respuesta.status === 404) {
@@ -56,11 +56,25 @@ async function obtenerPlantaPorId(id) {
 
         const dato = await respuesta.json();
 
-        if (!dato || typeof dato !== "object" || Array.isArray(dato)) {
+        let planta;
+
+        if (Array.isArray(dato)) {
+            if (dato.length === 0) {
+                return { dato: null, respaldo: false };
+            }
+
+            if (dato.length !== 1) {
+                throw new Error("La API devolvió varias plantas para un ID.");
+            }
+
+            planta = dato[0];
+        }
+
+        if (!planta || typeof planta !== "object" || String(planta.id) !== String(id)) {
             throw new Error("La API no devolvió una planta válida.");
         }
 
-        return { dato: dato, respaldo: false };
+        return { dato: planta, respaldo: false };
 
     } catch (error) {
         console.error("No fue posible consultar la ficha en MockAPI:", error);

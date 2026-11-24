@@ -46,7 +46,7 @@ if (detallePlanta) {
             crearFilaDetalle("Stock", planta.stock),
             crearFilaDetalle("Fecha de ingreso", planta.fechaIngreso),
             crearFilaDetalle("Apta para mascotas", planta.aptaMascotas ? "Sí" : "No"),
-            crearFilaDetalle("Etiquetas", planta.etiquetas.join(", ") || "Sin etiquetas")
+            crearFilaDetalle("Etiquetas", Array.isArray(planta.etiquetas) ? planta.etiquetas.join(", ") || "Sin etiquetas" : "Sin etiquetas")
         );
         tabla.appendChild(cuerpoTabla);
 
@@ -64,7 +64,7 @@ if (detallePlanta) {
         return articulo;
     }
 
-
+   /* Entrega 8
     const parametros = new URLSearchParams(window.location.search);
     const id = Number(parametros.get("id"));
 
@@ -83,5 +83,56 @@ if (detallePlanta) {
         volver.className = "boton";
         volver.textContent = "Volver al catálogo";
         detallePlanta.append(mensaje, volver);
+    }*/
+
+    function crearMensaje(texto) {
+        const mensaje = document.createElement("p");
+        mensaje.textContent = texto;
+        return mensaje;
     }
+
+    function crearVolver() {
+        const enlace = document.createElement("a");
+        enlace.href = "catalogo.html";
+        enlace.className = "boton";
+        enlace.textContent = "Volver al catálogo";
+        return enlace;
+    }
+
+    async function iniciarFicha() {
+        const parametros = new URLSearchParams(window.location.search);
+        const id = Number(parametros.get("id"));
+
+        if (!id && Number(id) < 1) {
+            detallePlanta.replaceChildren(
+                crearMensaje("El identificador de la planta no es válido."), crearVolver()
+            );
+            return;
+        }
+
+        detallePlanta.textContent = "Cargando ficha de planta...";
+        const resultado = await obtenerPlantaPorId(id);
+
+        console.log("Resultado recibido por planta.js:", resultado);
+        console.log("¿Se utiliza respaldo?:", resultado.respaldo);
+        console.log("Planta obtenida:", resultado.dato);
+
+        detallePlanta.replaceChildren();
+
+        if(resultado.respaldo) {
+            const aviso = crearMensaje("No pudimos consultar la API. Se muestran la planta del respaldo local.");
+            aviso.className = "alerta alerta-error";
+            detallePlanta.appendChild(aviso);
+        }
+
+        if(resultado.dato) {
+            document.title = resultado.dato.nombre + " | Vivero Raíz";
+            detallePlanta.appendChild(crearFicha(resultado.dato));
+        } else {
+            const texto = resultado.respaldo ? "La planta no está en el respaldo local. Volvé a intentarlo cuando la API esté disponible." : "No encontramos la planta solicitada.";
+            detallePlanta.append(crearMensaje(texto), crearVolver()); 
+        }
+    }
+
+    iniciarFicha();
 }
