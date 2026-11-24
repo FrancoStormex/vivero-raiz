@@ -51,7 +51,7 @@ if (detallePlanta) {
         tabla.appendChild(cuerpoTabla);
 
         const tituloCuidados = document.createElement("h2");
-        tituloCuidados.textContent = "Guía de cuidados";
+        tituloCuidados.textContent = "Descripción";
         const notas = document.createElement("p");
         notas.textContent = planta.notas;
 
