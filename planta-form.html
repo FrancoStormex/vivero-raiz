@@ -7,6 +7,9 @@
     <title>Cargar Planta | Vivero Raíz</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/validaciones.js" defer></script>
+    <script src="./js/datos.js" defer></script>
+    <script src="./js/api.js" defer></script>
+    <script src="./js/planta-form.js" defer></script>
 </head>
 
 <body>
@@ -29,7 +32,7 @@
     </header>
 
     <main>
-        <nav>
+        <nav aria-label="Navegación de la intranet">
             <ul>
                 <li><a href="listado.html">Ver Inventario</a></li>
                 <li><a href="planta-form.html">Nueva Planta</a></li>
@@ -37,9 +40,8 @@
             </ul>
         </nav>
         <section>
-            <h1>Alta / Edición de Planta</h1>
-
-            <form id="form-planta">
+            <h1 id="titulo-form-planta">Nueva planta</h1>
+            <form id="form-planta" novalidate>
                 <div class="mensaje-formulario alerta" role="status" aria-live="polite" hidden></div>
 
                 <fieldset>
@@ -137,7 +139,7 @@
                     <textarea id="notas" name="notas" rows="5" class="campo-entrada"></textarea>
                 </fieldset>
 
-                <button type="submit" class="boton">Guardar Planta</button>
+                <button type="submit" class="boton" id="guardar-planta">Guardar Planta</button>
                 <a href="listado.html" class="boton">Cancelar</a>
             </form>
         </section>
