@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/validaciones.js" defer></script>
     <script src="./js/datos.js" defer></script>
+    <script src="./js/api.js" defer></script>
     <script src="./js/listado.js" defer></script>
 </head>
 
@@ -38,11 +39,9 @@
             </ul>
         </nav>
         <section>
-            <h2>Inventario de Plantas</h2>
+            <h1>Inventario de Plantas</h1>
 
-            <div class="alerta alerta-exito">
-                Planta eliminada correctamente del catálogo.
-            </div>
+            <p id="estado-api-listado" class="alerta alerta-error" role="status" aria-live="polite" hidden></p>
 
             <div style="overflow-x: auto;">
                 <table>
